@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>信息滚动条</title>
+	<style>
+	*{
+		margin: 0;
+		padding:0;
+		text-decoration: none;
+		color: #fff;
+		font-size: 16px;
+		line-height: 30px;
+	}
+	.left{
+		margin-top: 100px;
+
+	}
+	body{
+		background: rgba(20,170,150,0.6);
+	}
+	#box{
+		border:1px solid #ccc;
+		border-radius: 5px;
+		background: rgba(145,90,74,0.9);
+		box-shadow: 0 0 10px gold;
+		width:200px;
+		height:100px;
+		margin:150px auto;
+		overflow:hidden;
+		text-align: center;
+	}
+    	ul li{overflow:hidden;}
+	</style>
+</head>
+<body>
+	<div class="left"><marquee behavior="alternate" direction="rigth" scrollamount="10" scrolldelay="500">我是向右滚</marquee></div>
+	<div id="box" >
+		<ul id="con1" >
+			<li><a href="#">手表</a></li>
+			<li><a href="#">电脑</a></li>
+			<li><a href="#">手机</a></li>
+			<li><a href="#">男装</a></li>
+			<li><a href="#">女装</a></li>
+			<li><a href="#">化妆品</a></li>
+			<li><a href="#">美食</a></li>
+			<li><a href="#">家用电器</a></li>
+			<li><a href="#">生活用品</a></li>
+		</ul>
+		<ul id="con2"></ul>
+	<script>
+	        var box=document.getElementById("box");
+	        var con1=document.getElementById("con1");
+	        var con2=document.getElementById("con2");
+	        con2.innerHTML=con1.innerHTML;
+	              function show(){
+	         	if(box.scrollTop>=con1.offsetHeight) {
+	         		box.scrollTop=0;
+	         	}else{
+	                box.scrollTop++
+	         	}
+	         }
+	        var dinshi=setInterval("show()",50)
+	          box.onmouseover=function() {
+	        	  clearInterval(dinshi);
+	        }
+	        box.onmouseout=function() {
+	             dinshi=setInterval("show()",50)
+	        }
+	     
+         
+	</script>
+	</div>
+</body>
+</html>

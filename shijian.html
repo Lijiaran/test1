@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时间</title>
+    <style>
+            body{
+                background: #49CCFF;
+            }
+            #timer{
+                    border: 1px solid #ccc;
+                    padding: 3px;
+                    box-shadow: 2px 2px 15px #ccc;
+                    border-radius: 5px;
+                    width: 280px;
+                    background: #222;
+                    margin: 300px auto;
+                    text-align: center;
+                    height: 30px;
+                    line-height: 30px;
+                    color: #fff;
+            }
+    </style>
+</head>
+<body>
+    <div id="timer"></div>
+    <script>
+            window.onload=show();
+            function show(){
+                        var timer=new Date();
+                        var year=timer.getFullYear();
+                        var month=timer.getMonth();
+                        var day=timer.getDate();
+                        var d=timer.getDay();
+                        var h=timer.getHours();
+                        var m=timer.getMinutes();
+                        var s=timer.getSeconds();
+                        var weekday=new Array();
+                        weekday[0]="星期天";
+                        weekday[1]="星期一";
+                        weekday[2]="星期二";
+                        weekday[3]="星期三";
+                        weekday[4]="星期四";
+                        weekday[5]="星期五";
+                        weekday[6]="星期六";
+                        document.getElementById('timer').innerHTML=year+"年"+month+"月"+day+"日"+weekday[d]+h+":"+m+":"+s;
+                        t=setTimeout(show,500);
+            }
+    </script>
+</body>
+</html>

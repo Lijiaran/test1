@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>高考倒计时</title>
+	<style> 
+	body{
+		background: rgba(0,255,0,0.5);
+	}
+	        #timer{
+	        border: 1px solid #ccc;
+	        padding: 3px;
+	        box-shadow: 2px 2px 15px #000;
+	        border-radius: 5px;
+	        width: 200px;
+	        background: #ccc;
+	        margin: 300px auto;
+	        text-align: center;
+	        height: 30px;
+	        line-height: 30px;
+	        }
+	</style>
+</head>
+<body>
+	<div id="timer"></div>
+	<script>
+	show();
+	function show(){
+		var timer=new Date("2018,6,6");//结束时间
+		var timer1=new Date();//现在时间
+		var lefttime=timer.getTime()-timer1.getTime();
+		var day=Math.ceil(lefttime/(24*60*60*1000));
+		document.getElementById('timer').innerHTML="距离高考还有："+day+"天";
+		setTimeout(show,1000);
+    	}
+	</script>
+</body>
+</html>

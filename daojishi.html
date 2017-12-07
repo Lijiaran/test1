@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒计时</title>
+            <style> 
+                    body{
+                        background: #915A4A;
+                    }
+                    #timer{
+                    border: 1px solid #ccc;
+                    padding: 3px;
+                    box-shadow: 2px 2px 15px gold;
+                    border-radius: 5px;
+                    width: 200px;
+                    background: rgba(0,255,0,0.5);
+                    margin: 300px auto;
+                    text-align: center;
+                    height: 30px;
+                    line-height: 30px;
+                    color: #fff;
+                    }
+            </style>
+</head>
+<body>
+	<div id="timer"></div>
+	<script>
+                          window.onload=function show(){
+                                       var timer=new Date();
+                                       var timer1=new Date("2018/01/15,12:15:52")//结束时间
+                                       var lefttime=parseInt((timer1.getTime()-timer.getTime())/1000);
+                                       var day=parseInt(lefttime/(24*60*60));
+                                       var h=parseInt(lefttime/(60*60)%24);
+                                       var m=parseInt(lefttime/60%60);
+                                       var s=parseInt(lefttime%60);
+                                       document.getElementById("timer").innerHTML="还剩"+day+"天"+h+"时"+m+"分"+s+"秒";
+                                       setTimeout(show,500);
+                                       if(lefttime<=0) {
+                                                    document.getElementById("timer").innerHTML="活动结束";
+                                       }
+                          }
+	</script>
+</body>
+</html>
